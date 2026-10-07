@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <stdlib.h>
+
+int main(int argc, char* argv[]) {
+	int n = atoi(argv[1]);
+	for (int i = 0; i < n; i++) {
+		pid_t pid;
+		pid = fork();
+		sleep(5);
+		
+		// 5 forks (run the program using ./ex2 5)
+		//if (pid > 0) {
+		//	sleep(5);
+		//	return 0;
+		//}
+	}
+	//sleep(5);
+	return 0;
+}
+
+//to run as background process
+// ./ex2 3 &
+// in the first case i see a tree where each child creates children (in total 2^n processes)
+// in the second case i see a line of processes. so each process creates 1 child
